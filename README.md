@@ -13,22 +13,25 @@ Before installing galasactl, you need to have Scoop installed on your Windows sy
 
 ### Installing Scoop
 
-If you don't have Scoop installed, you can install it by running the following command in PowerShell:
-
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-```
-
-For more information about Scoop, visit the [official Scoop website](https://scoop.sh/).
+See Scoop's [installation instructions](https://scoop.sh/).
 
 ## How do I install galasactl?
+
+Firstly add the galasa bucket:
+```powershell
+scoop bucket add galasa https://github.com/galasa-dev/scoop-bucket
+```
 
 To install galasactl on the latest version:
 
 ```powershell
-scoop bucket add galasa https://github.com/galasa-dev/scoop-bucket
 scoop install galasactl
+```
+
+To install galasactl on a specific version:
+
+```powershell
+scoop install galasactl@<version> # e.g. galasactl@0.43.0
 ```
 
 ## Updating galasactl
