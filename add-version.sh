@@ -12,6 +12,8 @@
 
 set -e
 
+export TERM="xterm-256color"
+
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUCKET_DIR="${SCRIPT_DIR}/bucket"
