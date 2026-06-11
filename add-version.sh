@@ -12,7 +12,9 @@
 
 set -e
 
-export TERM="xterm-256color"
+if [ -z "$TERM" ]; then
+    export TERM="xterm-256color"
+fi
 
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
