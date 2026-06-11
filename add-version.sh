@@ -10,8 +10,6 @@
 # calculates the SHA-256 hash, and creates/updates Scoop manifest files.
 # This matches the workflow used for Homebrew tap updates.
 
-set -e
-
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUCKET_DIR="${SCRIPT_DIR}/bucket"
@@ -80,7 +78,7 @@ function create_versioned_manifest() {
   "license": "EPL-2.0",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/galasa-dev/galasa/releases/download/v$version_to_add/galasactl-windows-x86_64.exe",
+      "url": "https://github.com/eamansour/galasa/releases/download/v$version_to_add/galasactl-windows-x86_64.exe",
       "hash": "$hash",
       "bin": [
         [
@@ -91,12 +89,12 @@ function create_versioned_manifest() {
     }
   },
   "checkver": {
-    "github": "https://github.com/galasa-dev/galasa"
+    "github": "https://github.com/eamansour/galasa"
   },
   "autoupdate": {
     "architecture": {
       "64bit": {
-        "url": "https://github.com/galasa-dev/galasa/releases/download/v\$version/galasactl-windows-x86_64.exe"
+        "url": "https://github.com/eamansour/galasa/releases/download/v\$version/galasactl-windows-x86_64.exe"
       }
     }
   }
@@ -120,7 +118,7 @@ function update_latest_manifest() {
   "license": "EPL-2.0",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/galasa-dev/galasa/releases/download/v$version_to_add/galasactl-windows-x86_64.exe",
+      "url": "https://github.com/eamansour/galasa/releases/download/v$version_to_add/galasactl-windows-x86_64.exe",
       "hash": "$hash",
       "bin": [
         [
@@ -131,12 +129,12 @@ function update_latest_manifest() {
     }
   },
   "checkver": {
-    "github": "https://github.com/galasa-dev/galasa"
+    "github": "https://github.com/eamansour/galasa"
   },
   "autoupdate": {
     "architecture": {
       "64bit": {
-        "url": "https://github.com/galasa-dev/galasa/releases/download/v\$version/galasactl-windows-x86_64.exe"
+        "url": "https://github.com/eamansour/galasa/releases/download/v\$version/galasactl-windows-x86_64.exe"
       }
     }
   }
@@ -179,7 +177,7 @@ mkdir -p "${SCRIPT_DIR}/temp"
 check_exit_code $? "Couldn't create temporary folder"
 
 # Download the Windows binary from GitHub releases
-url_to_download_from="https://github.com/galasa-dev/galasa/releases/download/v${version_to_add}/galasactl-windows-x86_64.exe"
+url_to_download_from="https://github.com/eamansour/galasa/releases/download/v${version_to_add}/galasactl-windows-x86_64.exe"
 target_file_path="${SCRIPT_DIR}/temp/galasactl-windows-x86_64.exe"
 
 download_executable "$url_to_download_from" "$target_file_path"
